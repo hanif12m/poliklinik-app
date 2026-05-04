@@ -27,7 +27,7 @@ class PoliController extends Controller
         ]);
 
         Poli::create($validated);
-        return redirect()->route('polis.index')
+        return redirect()->route('admin.polis.index')
             ->with('success', 'Poli berhasil di tambahkan')
             ->with('type', 'success');
     }
@@ -48,7 +48,7 @@ class PoliController extends Controller
         $poli = Poli::findOrFail($id);
         $poli->update($validated);
 
-        return redirect()->route('polis.index')
+        return redirect()->route('admin.polis.index')
             ->with('success', 'Polis berhasil di update');
     }
 
@@ -57,7 +57,7 @@ class PoliController extends Controller
         $poli = Poli::findOrFail($id);
         $poli->delete();
 
-        return redirect()->route('polis.index')
+        return redirect()->route('admin.polis.index')
             ->with('success', 'Polis Berhasil di hapus !');
     }
 }

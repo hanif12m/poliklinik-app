@@ -1,21 +1,31 @@
 <?php
 
-use App\Http\Middleware\RoleMiddleware;
-use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Configuration\Exceptions;
-use Illuminate\Foundation\Configuration\Middleware;
+namespace App\Http\Middleware;
 
-return Application::configure(basePath: dirname(__DIR__))
-    ->withRouting(
-        web: __DIR__.'/../routes/web.php',
-        commands: __DIR__.'/../routes/console.php',
-        health: '/up',
-    )
-    ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias([
-            'role' => RoleMiddleware::class,
-        ]);
-    })
-    ->withExceptions(function (Exceptions $exceptions) {
-        //
-    })->create();
+use Closure;
+use Illuminate\Http\Request;
+
+class RoleMiddleware
+{
+    public function handle(Request $request, Closure $next, $role)
+    {
+        // kalau belum login
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
+
+        $user = auth()->user();
+
+        // kalau user tidak punya role (hindari error null)
+        if (!$user || !$user->role) {
+            abort(403, 'Role tidak ditemukan');
+        }
+
+        // cek role
+        if ($user->role !== $role) {
+            abort(403, 'Akses ditolak');
+        }
+
+        return $next($request);
+    }
+}

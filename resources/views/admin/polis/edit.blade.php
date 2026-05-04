@@ -2,7 +2,7 @@
 
     {{-- Header --}}
     <div class="flex items-center gap-3 mb-6">
-        <a href="{{ route('polis.index') }}" class="inline-flex items-center justify-center w-9 h-9 
+        <a href="{{ route('admin.polis.index') }}" class="inline-flex items-center justify-center w-9 h-9 
                   rounded-lg bg-slate-100 text-slate-500 
                   hover:bg-slate-200 transition">
             <i class="fas fa-arrow-left text-sm"></i>
@@ -18,7 +18,7 @@
 
         <div class="card-body p-8">
 
-            <form action="{{ route('polis.update', $poli->id) }}" method="POST">
+            <form action="{{ route('admin.polis.update', $poli->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -65,7 +65,7 @@
                         <i class="fas fa-save mr-1"></i> Simpan
                     </button>
 
-                    <a href="{{ route('polis.index') }}"
+                    <a href="{{ route('admin.polis.index') }}"
                         class="px-6 py-2.5 rounded-lg bg-slate-100 hover:bg-slate-200 
                                text-slate-600 font-semibold text-sm transition">
                         Batal

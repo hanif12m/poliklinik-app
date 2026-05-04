@@ -2,7 +2,7 @@
 
     {{-- Header --}}
     <div class="flex items-center gap-3 mb-6">
-        <a href="{{ route('polis.index') }}"
+        <a href="{{ route('admin.polis.index') }}"
             class="flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200 transition">
             <i class="fas fa-arrow-left text-xs"></i>
         </a>
@@ -15,7 +15,7 @@
     <div class="card bg-base-100 shadow-md rounded-2xl border border-slate-200">
         <div class="card-body p-7">
 
-            <form action="{{ route('polis.store') }}" method="POST">
+            <form action="{{ route('admin.polis.store') }}" method="POST">
                 @csrf
 
                 {{-- Nama Poli --}}
@@ -69,7 +69,7 @@
                         Simpan
                     </button>
 
-                    <a href="{{ route('polis.index') }}"
+                    <a href="{{ route('admin.polis.index') }}"
                         class="flex items-center gap-2 px-6 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-500 rounded-lg text-sm font-semibold transition">
                         Batal
                     </a>

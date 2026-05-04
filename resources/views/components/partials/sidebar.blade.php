@@ -55,10 +55,25 @@
                 <i class="fas fa-gauge-high w-4 text-center"></i>
                 Dashboard Admin
             </a>
-            <a href="{{ route('polis.index') }}"
-                class="{{ $baseLink }} {{ request()->routeIs('polis.*') ? $active : $inactive }}">
+            <a href="{{ route('admin.polis.index') }}"
+                class="{{ $baseLink }} {{ request()->routeIs('admin.polis.*') ? $active : $inactive }}">
                 <i class="fas fa-hospital w-4 text-center"></i>
                 Manajemen Poli
+            </a>
+            <a href="{{ route('admin.dokter.index') }}"
+                class="{{ $baseLink }} {{ request()->routeIs('admin.dokter.*') ? $active : $inactive }}">
+                <i class="fas fa-hospital w-4 text-center"></i>
+                Manajemen Dokter
+            </a>
+            <a href="{{ route('admin.pasien.index') }}"
+                class="{{ $baseLink }} {{ request()->routeIs('admin.pasien.*') ? $active : $inactive }}">
+                <i class="fas fa-hospital w-4 text-center"></i>
+                Manajemen Pasien
+            </a>
+            <a href="{{ route('admin.obat.index') }}"
+                class="{{ $baseLink }} {{ request()->routeIs('admin.obat.*') ? $active : $inactive }}">
+                <i class="fas fa-hospital w-4 text-center"></i>
+                Manajemen Obat
             </a>
 
         </div>
@@ -79,6 +94,11 @@
                 <i class="fas fa-house-medical w-4 text-center"></i>
                 Dashboard Pasien
             </a>
+            <a href="{{ route('pasien.daftar') }}"
+                class="{{ $baseLink }} {{ request()->routeIs('pasien.daftar') ? $active : $inactive }}">
+                <i class="fas fa-house-medical w-4 text-center"></i>
+                Pendaftaran Periksa
+            </a>
 
 
         </div>
@@ -98,6 +118,21 @@
                 class="{{ $baseLink }} {{ request()->routeIs('dokter.dashboard') ? $active : $inactive }}">
                 <i class="fas fa-stethoscope w-4 text-center"></i>
                 Dashboard Dokter
+            </a>
+            <a href="{{ route('dokter.jadwal-periksa.index') }}"
+                class="{{ $baseLink }} {{ request()->routeIs('dokter.jadwal-periksa.*') ? $active : $inactive }}">
+                <i class="fas fa-stethoscope w-4 text-center"></i>
+                Jadwal Periksa
+            </a>
+            <a href="{{ route('dokter.periksa-pasien.index') }}"
+                class="{{ $baseLink }} {{ request()->routeIs('dokter.periksa-pasien.*') ? $active : $inactive }}">
+                <i class="fas fa-stethoscope w-4 text-center"></i>
+                Periksa Pasien
+            </a>
+            <a href="{{ route('dokter.riwayat-pasien.index') }}"
+                class="{{ $baseLink }} {{ request()->routeIs('dokter.riwayat-pasien.*') ? $active : $inactive }}">
+                <i class="fas fa-stethoscope w-4 text-center"></i>
+                Riwayat Pasien
             </a>
 
         </div>

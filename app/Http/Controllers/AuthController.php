@@ -57,6 +57,7 @@ class AuthController extends Controller
             'alamat' => $request->alamat,
             'no_ktp' => $request->no_ktp,
             'no_hp' => $request->no_hp,
+            'no_rm' => $no_rm,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 'pasien',
