@@ -28,6 +28,8 @@
                             <th class="px-6 py-4">Nama Obat</th>
                             <th class="px-6 py-4">Kemasan</th>
                             <th class="px-6 py-4">Harga</th>
+                            <th class="px-6 py-4 text-center">Stok</th>
+                            <th class="px-6 py-4 text-center">Status</th>
                             <th class="px-6 py-4 text-right">Aksi</th>
                         </tr>
                     </thead>
@@ -50,6 +52,34 @@
 
                             <td class="px-6 py-4 font-semibold text-slate-800">
                                 Rp {{ number_format($obat->harga, 0, ',', '.') }}
+                            </td>
+
+                            <td class="px-6 py-4 text-center font-bold">
+                                {{ $obat->stok }}
+                            </td>
+
+                            <td class="px-6 py-4 text-center">
+
+                                @if($obat->stok == 0)
+
+                                    <span class="badge badge-error text-white">
+                                        Habis
+                                    </span>
+
+                                @elseif($obat->stok <= 10)
+
+                                    <span class="badge badge-warning">
+                                        Menipis
+                                    </span>
+
+                                @else
+
+                                    <span class="badge badge-success text-white">
+                                        Aman
+                                    </span>
+
+                                @endif
+
                             </td>
 
                             <td class="px-6 py-4 text-right">
